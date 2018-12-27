@@ -1,0 +1,16 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F87K22 -DL -O11111114 -fo64 -N"D:\Clicks_git\F\Flash_4_click\SW\example\c\PIC\Click_Flash4_PIC.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"D:\Clicks_git\F\Flash_4_click\SW\example\c\PIC\" -SP"D:\Clicks_git\F\Flash_4_click\SW\library\HAL\" -SP"D:\Clicks_git\F\Flash_4_click\SW\library\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -IP"D:\Clicks_git\F\Flash_4_click\SW\example\c\PIC\" -IP"D:\Clicks_git\F\Flash_4_click\SW\library\" -IP"D:\Clicks_git\F\Flash_4_click\SW\library\HAL\" "Click_Flash4_PIC.c" "__flash4_Driver.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CString.mcl" "__Lib_Conversions.mcl" "__Lib_SPI_c345d654.mcl" "__Lib_UART_c67g12.mcl" "Click_Flash4.pld"	 
+hint: 0	1139	Available RAM: 3841 [bytes], Available ROM: 131072 [bytes]	 
+diagnostics: 0	122	Compilation Started	Click_Flash4_PIC.c
+warning: 905	1509	Generated baud rate is 9615 bps (error = 0.16 percent)	Click_Flash4_PIC.c
+diagnostics: 975	123	Compiled Successfully	Click_Flash4_PIC.c
+diagnostics: 0	122	Compilation Started	stdint.h
+diagnostics: 43	123	Compiled Successfully	__flash4_Driver.c
+hint: 323	1164	Variable 'tmp' has been eliminated by optimizer	__flash4_Driver.c
+hint: 34	1164	Variable 'tmp' has been eliminated by optimizer	__flash4_Driver.c
+diagnostics: 0	127	All files Compiled in 234 ms	 
+hint: 0	1144	Used RAM (bytes): 166 (4%)  Free RAM (bytes): 3675 (96%)	Used RAM (bytes): 166 (4%)  Free RAM (bytes): 3675 (96%)
+hint: 0	1144	Used ROM (bytes): 1435 (1%)  Free ROM (bytes): 129637 (99%)	Used ROM (bytes): 1435 (1%)  Free ROM (bytes): 129637 (99%)
+diagnostics: 0	125	Project Linked Successfully	Click_Flash4_PIC.mcppi
+diagnostics: 0	128	Linked in 31 ms	 
+diagnostics: 0	129	Project 'Click_Flash4_PIC.mcppi' completed: 281 ms	 
+diagnostics: 0	103	Finished successfully: 15 okt 2018, 13:39:45	Click_Flash4_PIC.mcppi

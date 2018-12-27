@@ -1,0 +1,27 @@
+main
+	__CC2DW
+	systemInit
+		UART1_Init
+		SPI1_Init_Advanced
+		UART1_Write_Text
+			UART1_Write
+		UART1_Write
+	flash4_Init
+		UART1_Write_Text
+			UART1_Write
+		UART1_Write
+	dataInit
+	UART1_Write_Text
+		UART1_Write
+	UART1_Write
+	flash4_writeEN
+		SPI1_Write
+	flash4_4PageProgram
+		SPI1_Write
+	flash4_checkWIP
+		flash4_readSR1
+			SPI1_Write
+			SPI1_Read
+	flash4_4ReadFlash
+		SPI1_Write
+		SPI1_Read

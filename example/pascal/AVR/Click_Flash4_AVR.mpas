@@ -1,0 +1,101 @@
+{
+Example for Flash4 Click
+
+    Date          : okt 2018.
+    Author        : MikroE Team
+
+Test configuration AVR :
+    
+    MCU              : ATMEGA32
+    Dev. Board       : EasyAVR v7 
+    AVR Compiler ver : v7.0.1.0
+
+---
+
+Description :
+
+The application is composed of three sections :
+
+- System Initialization - Initializes SPI Module and sets RST pin and CS pin as OUTPUT
+- Application Initialization - Initialization driver init and reset device
+- Application Task - (code snippet) - Erases memory at 0x00001234.
+                                      Writes a message (MikroElektronika) to address 0x00001234.
+                                      Then reads the data from the address 0x00001234.
+
+}
+program Click_Flash4_AVR;
+
+uses Click_Flash4_types, Click_Flash4_config;
+
+var
+    dataBuffer : array[17] of uint8_t; 
+    readBuffer : array[20] of char; 
+    cnt : uint8_t; 
+    
+procedure systemInit(); 
+begin
+    mikrobus_gpioInit(_MIKROBUS1, _MIKROBUS_RST_PIN, _GPIO_OUTPUT); 
+    mikrobus_gpioInit(_MIKROBUS1, _MIKROBUS_CS_PIN, _GPIO_OUTPUT); 
+    mikrobus_spiInit(_MIKROBUS1, @_FLASH4_SPI_CFG[0]); 
+    mikrobus_logInit(_LOG_USBUART, 9600); 
+    mikrobus_logWrite('--- System Init ---', _LOG_LINE); 
+    Delay_ms(100); 
+end;
+
+procedure applicationInit(); 
+begin
+    flash4_spiDriverInit(T_FLASH4_P(@_MIKROBUS1_GPIO), T_FLASH4_P(@_MIKROBUS1_SPI)); 
+    flash4_reset(); 
+end;
+
+procedure applicationTask(); 
+begin
+    flash4_writeCommand(_FLASH4_CMD_WRITE_ENABLE_WREN); 
+    mikrobus_logWrite('--- Erase chip --START--', _LOG_LINE); 
+    flash4_4sectorErase(0x00001234); 
+    while (flash4_checkWIP()) do 
+    begin 
+    end;
+    mikrobus_logWrite('--- Erase chip --DONE--', _LOG_LINE); 
+    flash4_writeCommand(_FLASH4_CMD_WRITE_ENABLE_WREN); 
+    flash4_4PageProgram(@dataBuffer[0], 0x00001234, 16); 
+    while (flash4_checkWIP()) do 
+    begin 
+    end;
+    Delay_100ms(); 
+    flash4_4ReadFlash(@readBuffer[0], 0x00001234, 16); 
+    while (flash4_checkWIP()) do 
+    begin 
+    end;
+    mikrobus_logWrite('--- Read buffer : ', _LOG_TEXT); 
+    mikrobus_logWrite(readBuffer, _LOG_LINE); 
+    Delay_ms(7000); 
+end;
+
+begin
+    dataBuffer[0] := 'M';
+    dataBuffer[1] := 'i';
+    dataBuffer[2] := 'k';
+    dataBuffer[3] := 'r';
+    dataBuffer[4] := 'o';
+    dataBuffer[5] := 'E';
+    dataBuffer[6] := 'l';
+    dataBuffer[7] := 'e';
+    dataBuffer[8] := 'k';
+    dataBuffer[9] := 't';
+    dataBuffer[10] := 'r';
+    dataBuffer[11] := 'o';
+    dataBuffer[12] := 'n';
+    dataBuffer[13] := 'i';
+    dataBuffer[14] := 'k';
+    dataBuffer[15] := 'a';
+    dataBuffer[16] := 0;
+    readBuffer[0] := 0;
+
+    systemInit(); 
+    applicationInit(); 
+    while (1) do 
+    begin 
+        applicationTask(); 
+    end;
+end.
