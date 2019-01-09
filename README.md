@@ -82,25 +82,4 @@ terminal available in all Mikroelektronika
 of your choice, can be used to read the message.
 
 ---
-### Architectures Supported
-
-#### mikroC
-
-| STM | KIN | CEC | MSP | TIVA | PIC | PIC32 | DSPIC | AVR | FT90x |
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| x | x | x | x | x | x | x | x | x | x |
-
-#### mikroBasic
-
-| STM | KIN | CEC | MSP | TIVA | PIC | PIC32 | DSPIC | AVR | FT90x |
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| x | x | x | x | x | x | x | x | x | x |
-
-#### mikroPascal
-
-| STM | KIN | CEC | MSP | TIVA | PIC | PIC32 | DSPIC | AVR | FT90x |
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| x | x | x | x | x | x | x | x | x | x |
-
----
 ---
